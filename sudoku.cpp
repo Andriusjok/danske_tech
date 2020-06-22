@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector>
 
-bool boxCheck(int board[][9], int startRow, int startCol)
+bool boxCheck(int board[][9])
 {
     std::vector<int> box;
 
@@ -28,6 +28,7 @@ bool validSolution(int board[][9], int n)
     {
         for (int j = 0; j < n; j++)
         {
+            // checking if there are zeroes
             if (board[i][j] == 0)
             {
                 return false;
@@ -49,7 +50,7 @@ bool validSolution(int board[][9], int n)
                         return false;
                 }
             }
-
+            //checking if there are duplicates in box
             if (boxCheck(board, i - i % 3, j - j % 3) == false)
             {
                 return false;
@@ -83,6 +84,6 @@ int main()
         {2, 8, 7, 4, 1, 9, 6, 3, 5},
         {3, 0, 0, 4, 8, 1, 1, 7, 9}};
 
-    std::cout << (validSolution(falseboard, 9) ? "valid" : "not valid");
+    std::cout << (validSolution(trueboard, 9) ? "valid" : "not valid");
     return 0;
 }
