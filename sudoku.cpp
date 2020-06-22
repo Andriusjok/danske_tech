@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector>
 
-bool boxCheck(int board[][9])
+bool boxCheck(int board[][9], int startRow, int startCol)
 {
     std::vector<int> box;
 
@@ -10,7 +10,8 @@ bool boxCheck(int board[][9])
     {
         for (int col = 0; col < 3; col++)
         {
-            box.push_back(board[row][col]);
+            int pointer = board[row + startRow][col + startCol];
+            box.push_back(pointer);
         }
     }
     std::unique(box.begin(), box.end());
@@ -84,6 +85,6 @@ int main()
         {2, 8, 7, 4, 1, 9, 6, 3, 5},
         {3, 0, 0, 4, 8, 1, 1, 7, 9}};
 
-    std::cout << (validSolution(trueboard, 9) ? "valid" : "not valid");
+    std::cout << (validSolution(falseboard, 9) ? "valid" : "not valid");
     return 0;
 }
