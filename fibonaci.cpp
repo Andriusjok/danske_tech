@@ -9,13 +9,13 @@ int FibonacciSum(int maxvalue)
 
     while (fiboB <= maxvalue)
     {
-        long long int ef3 = 4 * fiboB + fiboA;
+        long int fiboNext = 4 * fiboB + fiboA;
 
-        if (ef3 > maxvalue)
+        if (fiboNext > maxvalue)
             break;
 
         fiboA = fiboB;
-        fiboB = ef3;
+        fiboB = fiboNext;
         sum += fiboB;
     }
 
